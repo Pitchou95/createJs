@@ -1,0 +1,91 @@
+body {
+    background-image: url(https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2ViJTIwZGV2ZWxvcGVyfGVufDB8fDB8fHww&w=1000&q=80);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    margin: auto;
+}
+
+#img {
+    margin: 15px;
+    width: 100px;
+    height: 100px;
+}
+
+h1 {
+    color: aqua;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    width: 50%;
+    margin: auto;
+    font-style: italic;
+    background-color: rgb(235, 232, 232);
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+p {
+    color: blueviolet;
+}
+
+label {
+    width: 90px;
+    color: aquamarine;
+}
+
+.radioLabel {
+    width: 20px;
+}
+
+.formGroup {
+    margin: 20px 0;
+    padding: 20px 0;
+    background-color: transparent;
+
+}
+
+#gender {
+    color: rgb(127, 255, 212);
+    padding: 6px 8px;
+    border-radius: 8px;
+    width: 200px;
+}
+
+button {
+    border: none;
+    color: rgb(29, 28, 32);
+    padding: 6px 8px;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+table {
+    display: inline-table;
+    table-layout: auto;
+    color: aqua;
+    background-color: blue;
+    border: 20px;
+    grid: 22px;
+}
