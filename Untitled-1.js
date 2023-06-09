@@ -1,15 +1,9 @@
-const btn = document.querySelector('button[type="submit"]')
+const btnAdd = document.querySelector('#addBtn')
+const btnUpdate = document.querySelector('#updateBtn')
 let id = 0
-const btnE = document.createElement("button");
-btnE.textContent = "EDIT";
-btnE.addEventListener("click", function (e) {
-    handleEdit(e);
-
-});
-function handleEdit(e) {
-
-}
-btn.addEventListener("click", function (event) {
+let idToEdit = -1
+// Add Element
+btnAdd.addEventListener("click", function (event) {
     event.preventDefault();
     const fName = document.querySelector('#Fname').value
     const lName = document.querySelector('#Lname').value
@@ -29,9 +23,29 @@ btn.addEventListener("click", function (event) {
     const btnD = document.createElement("button")
     btnD.textContent = "delete"
     btnD.addEventListener("click", function (e) {
-        e.target.parentNode.parentNode.remove()
+        row.remove()
     })
+    const btnE = document.createElement("button");
+    btnE.textContent = "EDIT";
+    // Edit Element
+    btnE.addEventListener('click', function (e) {
+        document.querySelector('#Fname').value = fName
+        document.querySelector('#Lname').value = lName
+        if (gender = "M") {
+            document.querySelector('#m').checked = true
+        } else {
+            document.querySelector('#m').checked = false
+        }
+        document.querySelector('#age').value = age
+        document.querySelector('#email').value = email
+        document.querySelector('#number').value = tel
+        document.querySelector("#image").value = imgUrl
 
+        btnAdd.style.display = "none"
+        btnUpdate.style.display = "inline"
+
+        idToEdit = row.querySelector('th').textContent
+    })
 
     id++;
     th.textContent = id
@@ -62,4 +76,40 @@ btn.addEventListener("click", function (event) {
     row.appendChild(td7)
     row.appendChild(td8)
     tableBody.appendChild(row)
+
+    document.querySelector('form').reset()
+})
+// UpdateElement
+btnUpdate.addEventListener('click', function (event) {
+    event.preventDefault();
+    const fName = document.querySelector('#Fname').value
+    const lName = document.querySelector('#Lname').value
+    let gender = "F"
+    const age = document.querySelector('#age').value
+    const email = document.querySelector('#email').value
+    const tel = document.querySelector('#number').value
+    const imgUrl = document.querySelector("#image").value
+    if (document.querySelector('#m').checked) {
+        gender = "M"
+    }
+    const tableBody = document.querySelector('tbody')
+    rows = tableBody.querySelectorAll('tr');
+
+    for (let i = 0; i < rows.length; i++) {
+        let actualID = rows[i].querySelector('th').textContent
+        if (actualID == idToEdit) {
+            let cells = rows[i].querySelectorAll('td')
+            cells[0].textContent = `${fName} ${lName}`;
+            cells[1].textContent = email;
+            cells[2].textContent = age;
+            cells[3].textContent = tel;
+            cells[4].textContent = gender;
+            cells[5].querySelector("img").src = imgUrl;
+        }
+    }
+
+    btnAdd.style.display = "inline"
+    btnUpdate.style.display = "none"
+    document.querySelector('form').reset()
+
 })

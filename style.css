@@ -15,7 +15,7 @@ body {
     margin: auto;
 }
 
-#img {
+img {
     margin: 15px;
     width: 100px;
     height: 100px;
@@ -88,4 +88,8 @@ table {
     background-color: blue;
     border: 20px;
     grid: 22px;
+}
+
+#updateBtn{
+    display:none;
 }
